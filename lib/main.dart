@@ -38,6 +38,8 @@ class _SpellFormState extends State<SpellForm> {
   int outer = ~0;
   int common = 0;
   int score = 0;
+  String base = "";
+  String center = "";
 
   late List<String> results = [];
 
@@ -86,20 +88,14 @@ class _SpellFormState extends State<SpellForm> {
           const Divider(
             height: 10,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: const <Widget>[
-              Text('Center'),
-              Text('Outer Letters'),
-              Text('                                  '),
-            ],
-          ),
+
+
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Container(
-                width: 40,
+                width: 60,
                 height: 30,
                 child: TextField(
                   controller: centerLetter,
@@ -109,10 +105,14 @@ class _SpellFormState extends State<SpellForm> {
                   ),
                   textAlignVertical: TextAlignVertical.center,
                   textAlign: TextAlign.center,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
+                      hintText: 'center',
+                      hintStyle: TextStyle(fontSize: 15),
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(5))),
-                      contentPadding: EdgeInsets.zero),
+                          borderRadius: BorderRadius.circular(5.0)
+                      ),
+                      contentPadding: EdgeInsets.zero
+                  ),
                 ),
               ),Container(
                 width: 150,
@@ -125,9 +125,12 @@ class _SpellFormState extends State<SpellForm> {
                   ),
                   textAlignVertical: TextAlignVertical.center,
                   textAlign: TextAlign.center,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
+                      hintText: 'outer letters',
+                      hintStyle: TextStyle(fontSize: 15),
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(5))),
+                          borderRadius: BorderRadius.circular(5.0)
+                      ),
                       contentPadding: EdgeInsets.zero),
                 ),
               ),
@@ -138,9 +141,10 @@ class _SpellFormState extends State<SpellForm> {
                   backgroundColor: Colors.blueAccent,
                 ),
                 onPressed: () async {
-                  String base = outerLetters.text;
+                  base = outerLetters.text;
                   List<int> chars = base.codeUnits;
 
+                  outer = ~0;
                   for (int p in chars) {
                     if (p < 97) {
                       outer ^= 1 << (p - 65);
@@ -149,7 +153,8 @@ class _SpellFormState extends State<SpellForm> {
                     }
                   }
 
-                  String center = centerLetter.text;
+                  common = 0;
+                  center = centerLetter.text;
                   int c = center.codeUnitAt(0);
                   if (c < 97) {
                     common |= 1 << (c - 65);
@@ -170,6 +175,21 @@ class _SpellFormState extends State<SpellForm> {
                 },
                 child: const Text('Solve'),
               ),
+              TextButton(
+                style: TextButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.blueGrey,
+                ),
+                onPressed: () async {
+                  centerLetter.text = "";
+                  outerLetters.text = "";
+                  _resultVisible = false;
+                  setState(() {
+
+                  });
+                },
+                child: const Text('Clear'),
+              )
             ],
           ),
           Row(

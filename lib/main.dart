@@ -88,8 +88,6 @@ class _SpellFormState extends State<SpellForm> {
           const Divider(
             height: 10,
           ),
-
-
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -109,12 +107,11 @@ class _SpellFormState extends State<SpellForm> {
                       hintText: 'center',
                       hintStyle: TextStyle(fontSize: 15),
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0)
-                      ),
-                      contentPadding: EdgeInsets.zero
-                  ),
+                          borderRadius: BorderRadius.circular(5.0)),
+                      contentPadding: EdgeInsets.zero),
                 ),
-              ),Container(
+              ),
+              Container(
                 width: 150,
                 height: 30,
                 child: TextField(
@@ -129,12 +126,10 @@ class _SpellFormState extends State<SpellForm> {
                       hintText: 'outer letters',
                       hintStyle: TextStyle(fontSize: 15),
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0)
-                      ),
+                          borderRadius: BorderRadius.circular(5.0)),
                       contentPadding: EdgeInsets.zero),
                 ),
               ),
-
               TextButton(
                 style: TextButton.styleFrom(
                   foregroundColor: Colors.white,
@@ -184,9 +179,7 @@ class _SpellFormState extends State<SpellForm> {
                   centerLetter.text = "";
                   outerLetters.text = "";
                   _resultVisible = false;
-                  setState(() {
-
-                  });
+                  setState(() {});
                 },
                 child: const Text('Clear'),
               )
@@ -240,35 +233,36 @@ class _SpellFormState extends State<SpellForm> {
               child: Column(
                 children: <Widget>[
                   Visibility(
-                      visible: _resultVisible,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            width: 200,
-                            padding: const EdgeInsets.all(10.0),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(
-                                color: Colors.grey,
-                              ),
+                    visible: _resultVisible,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Container(
+                          width: 200,
+                          padding: const EdgeInsets.all(10.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(
+                              color: Colors.grey,
                             ),
-                            child: ListView.builder(
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemCount: results.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                return Text(
-                                    style: const TextStyle(
-                                      fontSize: 20,
-                                      color: Colors.blueAccent,
-                                    ),
-                                    results[index]);
-                              },
-                            ),
-                          )
-                        ],
-                      ))
+                          ),
+                          child: ListView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: results.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return Text(
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.blueAccent,
+                                ),
+                                results[index]);
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

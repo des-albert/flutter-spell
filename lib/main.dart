@@ -81,6 +81,7 @@ class _SpellFormState extends State<SpellForm> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('DB\'r SpellBee Solver'),
+        backgroundColor: Colors.cyan,
         centerTitle: true,
       ),
       body: Column(
@@ -252,11 +253,11 @@ class _SpellFormState extends State<SpellForm> {
                             itemCount: results.length,
                             itemBuilder: (BuildContext context, int index) {
                               return Text(
-                                style: const TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.blueAccent,
-                                ),
-                                results[index]);
+                                  style: const TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.blueAccent,
+                                  ),
+                                  results[index]);
                             },
                           ),
                         ),

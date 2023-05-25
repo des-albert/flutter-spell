@@ -16553,6 +16553,7 @@ elusions
 elusive
 elusively
 elusiveness
+elute
 eluted
 elution
 elven
@@ -28370,6 +28371,8 @@ kleptomaniac
 kleptomaniacs
 klick
 kloof
+klutz
+klutzes
 knack
 knacker
 knackers
@@ -45583,6 +45586,7 @@ setbacks
 seth
 sets
 setswana
+sett
 settee
 settees
 setter
@@ -46615,6 +46619,7 @@ skater
 skaters
 skates
 skating
+skeet
 skein
 skeletal
 skeleton
@@ -46843,6 +46848,7 @@ sledging
 sleds
 sleek
 sleeker
+sleekest
 sleekly
 sleekness
 sleeks
@@ -50361,6 +50367,7 @@ sustained
 sustaining
 sustains
 sustenance
+suttee
 suture
 sutures
 suzerainty
@@ -53294,6 +53301,7 @@ truths
 try
 trying
 tsetse
+tsetses
 tshirt
 tsunami
 tswana
@@ -53336,6 +53344,7 @@ tugged
 tugging
 tugs
 tuition
+tulle
 tulip
 tulips
 tumble
@@ -53470,6 +53479,7 @@ tutorial
 tutorials
 tutoring
 tutors
+tuts
 tutu
 tuxedo
 twain
@@ -55502,6 +55512,7 @@ usurper
 usurping
 usury
 utah
+utes
 utensil
 utensils
 uteri
@@ -58084,6 +58095,7 @@ zeroed
 zeroing
 zest
 zestfully
+zests
 zesty
 zeta
 zeus

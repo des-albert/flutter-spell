@@ -42,6 +42,7 @@ class _SpellFormState extends State<SpellForm> {
   String center = "";
 
   late List<String> results = [];
+  late List<int> count = [];
 
   bool _resultVisible = false;
 
@@ -55,6 +56,7 @@ class _SpellFormState extends State<SpellForm> {
       int mask = 0;
       int match = 0;
       int center = 0;
+      int total, i;
 
       List<int> chars = word.codeUnits;
       for (int p in chars) {
@@ -68,6 +70,12 @@ class _SpellFormState extends State<SpellForm> {
       center = mask & common;
       if (match == 0 && center != 0 && word.length >= wordLimit) {
         results.add(word);
+        total = 0;
+        for (i = 0; i < 26; i++) {
+          if ((outer >> i) & 1 == 0 && (mask >> i) & 1 == 1) ++total;
+        }
+        count.add(total);
+        if (total == 7) score += 7;
         if (word.length > 4)
           score += word.length;
         else
@@ -81,7 +89,7 @@ class _SpellFormState extends State<SpellForm> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('DB\'r SpellBee Solver'),
-        backgroundColor: Colors.cyan,
+        backgroundColor: Colors.lightBlueAccent,
         centerTitle: true,
       ),
       body: Column(
@@ -139,35 +147,37 @@ class _SpellFormState extends State<SpellForm> {
                 onPressed: () async {
                   base = outerLetters.text;
                   List<int> chars = base.codeUnits;
-
-                  outer = ~0;
-                  for (int p in chars) {
-                    if (p < 97) {
-                      outer ^= 1 << (p - 65);
-                    } else {
-                      outer ^= 1 << (p - 97);
+                  if (chars.length == 6) {
+                    outer = ~0;
+                    for (int p in chars) {
+                      if (p < 97) {
+                        outer ^= 1 << (p - 65);
+                      } else {
+                        outer ^= 1 << (p - 97);
+                      }
                     }
+
+                    common = 0;
+                    center = centerLetter.text;
+                    int c = center.codeUnitAt(0);
+                    if (c < 97) {
+                      common |= 1 << (c - 65);
+                    } else {
+                      common |= 1 << (c - 97);
+                    }
+
+                    outer ^= common;
+
+                    results.clear();
+                    count.clear();
+
+                    await _loadData();
+
+                    setState(() {
+                      results.length;
+                    });
+                    _resultVisible = true;
                   }
-
-                  common = 0;
-                  center = centerLetter.text;
-                  int c = center.codeUnitAt(0);
-                  if (c < 97) {
-                    common |= 1 << (c - 65);
-                  } else {
-                    common |= 1 << (c - 97);
-                  }
-
-                  outer ^= common;
-
-                  results.clear();
-
-                  await _loadData();
-
-                  setState(() {
-                    results.length;
-                  });
-                  _resultVisible = true;
                 },
                 child: const Text('Solve'),
               ),
@@ -180,6 +190,8 @@ class _SpellFormState extends State<SpellForm> {
                   centerLetter.text = "";
                   outerLetters.text = "";
                   _resultVisible = false;
+                  results.clear();
+                  count.clear();
                   setState(() {});
                 },
                 child: const Text('Clear'),
@@ -218,14 +230,14 @@ class _SpellFormState extends State<SpellForm> {
           Visibility(
             visible: _resultVisible,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 Text(
-                    style: const TextStyle(
-                      fontSize: 20,
-                      color: Colors.green,
-                    ),
-                    '${results.length} words score ${score}'),
+                  style: const TextStyle(
+                    fontSize: 20,
+                    color: Colors.green,
+                  ),
+                  '${results.length} words score ${score}')
               ],
             ),
           ),
@@ -239,25 +251,41 @@ class _SpellFormState extends State<SpellForm> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Container(
-                          width: 200,
+                          width: 350,
                           padding: const EdgeInsets.all(10.0),
                           decoration: BoxDecoration(
+                            color: Colors.green[100],
                             borderRadius: BorderRadius.circular(20),
                             border: Border.all(
                               color: Colors.grey,
                             ),
                           ),
-                          child: ListView.builder(
+                          child: GridView.builder(
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 3,
+                              childAspectRatio: 5.0,
+                            ),
                             itemCount: results.length,
                             itemBuilder: (BuildContext context, int index) {
-                              return Text(
-                                  style: const TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.blueAccent,
-                                  ),
-                                  results[index]);
+                              if (count[index] == 7)
+                                return Text(
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.redAccent,
+                                    ),
+                                    results[index]);
+                              else
+                                return Text(
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.normal,
+                                      color: Colors.blueAccent,
+                                    ),
+                                    results[index]);
                             },
                           ),
                         ),

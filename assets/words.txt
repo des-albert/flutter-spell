@@ -922,6 +922,7 @@ aerodynamically
 aerodynamics
 aerofoil
 aerofoils
+aerogram
 aeronaut
 aeronautic
 aeronautical
@@ -1606,6 +1607,7 @@ ambled
 ambler
 ambles
 ambling
+ambo
 ambrosia
 ambulance
 ambulances
@@ -2611,7 +2613,10 @@ armistice
 armless
 armlet
 armlets
+armor
+armorer
 armour
+armourer
 armoured
 armourer
 armourers
@@ -3941,6 +3946,7 @@ barriers
 barring
 barrister
 barristers
+barroom
 barrow
 barrows
 bars
@@ -4549,6 +4555,7 @@ bergs
 berk
 berlin
 berliner
+berm
 bermuda
 bern
 berries
@@ -5374,6 +5381,7 @@ bobs
 bobsled
 bobtail
 bobtails
+bock
 bode
 boded
 bocce
@@ -5471,6 +5479,7 @@ bonanza
 bonanzas
 bonbon
 bonbons
+bonce
 bond
 bondage
 bonded
@@ -5486,6 +5495,7 @@ bones
 boney
 bonfire
 bonfires
+bonk
 bong
 bongs
 bonier
@@ -8009,6 +8019,7 @@ cheaters
 cheating
 cheats
 check
+checkbook
 checked
 checker
 checkered
@@ -8256,6 +8267,7 @@ chloroformed
 chloroforming
 chlorophyll
 chloroquine
+choc
 chock
 chockablock
 chockfull
@@ -8282,6 +8294,7 @@ chomp
 chomped
 chomping
 chomps
+chook
 choose
 chooser
 choosers
@@ -9051,6 +9064,7 @@ cocksure
 cocktail
 cocktails
 cocky
+coco
 cocoa
 coconut
 coconuts
@@ -10748,6 +10762,7 @@ convulsively
 cony
 coo
 cooed
+cooee
 cooing
 cook
 cookbook
@@ -16717,6 +16732,7 @@ emitted
 emitter
 emitters
 emitting
+emmer
 emollient
 emolument
 emoluments
@@ -24201,6 +24217,7 @@ hobgoblin
 hobgoblins
 hobnailed
 hobnails
+hobnob
 hobo
 hobs
 hock
@@ -24225,6 +24242,7 @@ hoist
 hoisted
 hoisting
 hoists
+hoke
 hold
 holdable
 holdall
@@ -24345,6 +24363,7 @@ homotopy
 homozygous
 homunculus
 homy
+honcho
 hone
 honed
 hones
@@ -24378,6 +24397,7 @@ honoured
 honouring
 honours
 honshu
+hooch
 hood
 hooded
 hoodlum
@@ -24400,6 +24420,7 @@ hooky
 hooligan
 hooliganism
 hooligans
+hoon
 hoop
 hooped
 hoops
@@ -28179,6 +28200,7 @@ kennedy
 kennel
 kennelled
 kennels
+keno
 kent
 kentucky
 kenya
@@ -28461,6 +28483,7 @@ knuckling
 koala
 koalas
 kongo
+kook
 kookaburra
 koran
 korea
@@ -30613,11 +30636,13 @@ mama
 mamas
 mamba
 mambas
+mamma
 mammal
 mammalia
 mammalian
 mammals
 mammary
+mammogram
 mammoth
 mammoths
 mammy
@@ -30821,6 +30846,7 @@ mares
 margarine
 margarines
 margate
+marge
 margin
 marginal
 marginalia
@@ -31184,6 +31210,7 @@ mead
 meadow
 meadowland
 meadows
+meager
 meagre
 meagrely
 meagreness
@@ -31390,6 +31417,7 @@ membership
 memberships
 membrane
 membranes
+meme
 memento
 memo
 memoir
@@ -33569,6 +33597,7 @@ neither
 nematode
 nematodes
 nemesis
+neocon
 neolithic
 neologism
 neologisms
@@ -33888,6 +33917,7 @@ nominees
 non
 nonbeliever
 nonbelievers
+nonce
 nonchalance
 nonchalant
 nonchalantly

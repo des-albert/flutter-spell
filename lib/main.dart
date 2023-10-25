@@ -34,7 +34,7 @@ class _SpellFormState extends State<SpellForm> {
   TextEditingController centerLetter = TextEditingController();
 
   LineSplitter ls = const LineSplitter();
-  int wordLimit = 4;
+  int wordLimit = 5;
   int outer = ~0;
   int common = 0;
   int score = 0;

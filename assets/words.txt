@@ -27488,6 +27488,7 @@ ironmongers
 ironmongery
 irons
 ironstone
+ironware
 ironwork
 ironworks
 irony
